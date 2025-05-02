@@ -52,7 +52,7 @@ def resolve_duplicates(points):
                     used.add(j)
 
         if len(dup_group) > 1:
-            print("\nDuplicate points detected within 5 meters:")
+            print(f"\nDuplicate points detected within {DIST_THRESHOLD_METERS} meters:")
             for idx, (lat, lon, pm, _, fname) in enumerate(dup_group):
                 name_elem = pm.find('.//kml:name', {'kml': 'http://www.opengis.net/kml/2.2'})
                 name = name_elem.text if name_elem is not None else 'N/A'
@@ -129,6 +129,8 @@ def main():
 
     args = parser.parse_args()
     all_points = []
+    
+    source_point = get_source_point()
 
     for file in args.files:
         print(f"Parsing {file}...")
@@ -139,8 +141,6 @@ def main():
     unique_points = resolve_duplicates(all_points)
 
     print(f"\nFinal number of points: {len(unique_points)}")
-    
-    source_point = get_source_point()
     
     merged_kml = create_merged_kml(unique_points, source_point)
     rough_string = ET.tostring(merged_kml.getroot(), encoding='utf-8')

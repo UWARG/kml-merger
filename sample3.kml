@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+    <name>Sample KML 2</name>
+    <Placemark>
+      <name>Hotspot 1</name>
+      <Point>
+        <coordinates>-123.365647,48.428423,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Hotspot 2</name>
+      <Point>
+        <coordinates>-123.370005,48.429002,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Hotspot 3</name>
+      <Point>
+        <coordinates>-123.375000,48.431000,0</coordinates>
+      </Point>
+    </Placemark>
+  </Document>
+</kml>
